@@ -1,0 +1,29 @@
+# 飞书多维表格配置
+# 请填写你的飞书应用信息
+
+feishu:
+  # 应用凭证，从飞书开放平台获取
+  app_id: "你的app_id"
+  app_secret: "你的app_secret"
+  
+  # 多维表格信息（用于 main.go - 操作已有表格）
+  # app_token: 打开飞书多维表格，从浏览器地址栏获取（例如：https://xxx.feishu.cn/base/bascnxxxxxx）
+  # table_id: 表格的 table_id（点击表格后，从地址栏获取，例如：tblxxxxxx）
+  app_token: "你的app_token"
+  table_id: "你的table_id"
+  
+  # 云空间文件夹 token（用于 main_create.go - 创建新表格，可选）
+  # folder_token: 从飞书云空间文件夹 URL 获取（如果不填，会创建在根目录）
+  folder_token: ""
+
+# 使用说明：
+# - main.go: 操作已有的多维表格（需要填写 app_token 和 table_id）
+# - main_create.go: 创建新的多维表格并操作（会自动创建，不需要 app_token 和 table_id）
+
+# https://my.feishu.cn/base/你的app_token?table=你的table_id&view=vewtT9lz7f
+# 配置说明：
+# 1. 登录飞书开放平台 https://open.feishu.cn/
+# 2. 创建企业自建应用，获取 app_id 和 app_secret
+# 3. 给应用添加权限：
+#    - 查看、编辑和管理多维表格（bitable:app）
+# 4. 打开飞书多维表格，从 URL 中获取 app_token 和 table_id
