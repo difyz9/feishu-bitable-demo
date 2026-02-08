@@ -12,13 +12,14 @@ feishu:
   app_token: "你的app_token"
   table_id: "你的table_id"
   
-  # 云空间文件夹 token（用于 main_create.go - 创建新表格，可选）
+  # 云空间文件夹 token（用于 main_create.go - 创建新表格 / main_docs.go - 创建云文档，可选）
   # folder_token: 从飞书云空间文件夹 URL 获取（如果不填，会创建在根目录）
   folder_token: ""
 
 # 使用说明：
 # - main.go: 操作已有的多维表格（需要填写 app_token 和 table_id）
 # - main_create.go: 创建新的多维表格并操作（会自动创建，不需要 app_token 和 table_id）
+# - main_docs.go: 云文档操作示例（创建、读取、编辑云文档）⭐️ 新增
 
 # https://my.feishu.cn/base/你的app_token?table=你的table_id&view=vewtT9lz7f
 # 配置说明：
@@ -26,4 +27,5 @@ feishu:
 # 2. 创建企业自建应用，获取 app_id 和 app_secret
 # 3. 给应用添加权限：
 #    - 查看、编辑和管理多维表格（bitable:app）
+#    - 查看、评论、编辑和管理云空间中所有文件（drive:drive）⭐️ 新增（用于云文档操作）
 # 4. 打开飞书多维表格，从 URL 中获取 app_token 和 table_id

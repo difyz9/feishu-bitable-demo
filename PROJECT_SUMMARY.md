@@ -1,4 +1,4 @@
-# 飞书多维表格 Go SDK - 项目总结
+# 飞书多维表格 & 云文档 Go SDK - 项目总结
 
 ## ✅ 已完成的工作
 
@@ -10,7 +10,7 @@
 
 ### 2. 实现的功能模块
 
-#### 核心功能
+#### 多维表格核心功能
 - ✅ 创建单个记录
 - ✅ 批量创建记录
 - ✅ 读取单个记录
@@ -18,8 +18,25 @@
 - ✅ 更新单个记录
 - ✅ 批量更新记录
 - ✅ 删除记录
+- ✅ 创建多维表格和数据表
 
-#### 辅助函数
+#### 云文档功能 ⭐️ 新增
+- ✅ 创建云文档 (`CreateDocument`)
+- ✅ 获取文档信息 (`GetDocument`)
+- ✅ 获取文档纯文本内容 (`GetDocumentRawContent`)
+- ✅ 获取文档所有块 (`ListDocumentBlocks`)
+- ✅ 创建文档块 (`CreateDocumentBlock`)
+- ✅ 更新文档块 (`UpdateDocumentBlock`)
+- ✅ 删除文档块 (`DeleteDocumentBlocks`)
+
+#### 云文档辅助函数 ⭐️ 新增
+- ✅ 文本块 (`CreateTextBlock`)
+- ✅ 标题块 (`CreateHeadingBlock`)
+- ✅ 无序列表 (`CreateBulletListBlock`)
+- ✅ 有序列表 (`CreateOrderedListBlock`)
+- ✅ 代码块 (`CreateCodeBlock`)
+
+#### 多维表格辅助函数
 - ✅ 文本字段 (`CreateTextField`)
 - ✅ 数字字段 (`CreateNumberField`)
 - ✅ 日期时间字段 (`CreateDateTimeField`, `CreateDateTimeFieldFromTime`)
@@ -38,21 +55,32 @@ feishu_golang/
 ├── feishu/                  # 飞书 SDK 封装
 │   ├── client.go            # 客户端初始化
 │   ├── records.go           # 记录操作（CRUD）
+│   ├── table.go             # 表格和数据表创建
+│   ├── docs.go              # 云文档操作 ⭐️ 新增
 │   ├── helpers.go           # 字段类型辅助函数
 │   └── types.go             # 类型定义
-├── main.go                  # 测试验证程序
+├── main.go                  # 多维表格测试程序
+├── main_create.go           # 创建表格并写入数据
+├── main_docs.go             # 云文档操作示例 ⭐️ 新增
 ├── config.yaml              # 配置文件
 ├── README.md                # 使用说明
+├── CREATE_TABLE_GUIDE.md    # 创建表格使用指南
+├── DOCS_GUIDE.md            # 云文档操作指南 ⭐️ 新增
 ├── PERMISSION_GUIDE.md      # 权限配置指南
-├── dev.md                   # 原始开发文档
+├── TROUBLESHOOTING.md       # 常见问题解决
 ├── go.mod                   # Go 模块配置
-└── run.sh                   # 快速运行脚本
+├── run.sh                   # 多维表格运行脚本
+├── run_docs.sh              # 云文档运行脚本 ⭐️ 新增
+└── create_table.sh          # 创建表格脚本
 ```
 
 ### 4. 文档完善
 
 - ✅ README.md - 完整的使用说明和 API 文档
+- ✅ CREATE_TABLE_GUIDE.md - 创建表格详细指南
+- ✅ DOCS_GUIDE.md - 云文档操作指南 ⭐️ 新增
 - ✅ PERMISSION_GUIDE.md - 权限配置详细指南
+- ✅ TROUBLESHOOTING.md - 常见问题解决
 - ✅ 代码注释完整
 - ✅ 使用示例丰富
 
@@ -69,7 +97,8 @@ app_id: cli_xxxxxxxxxx
 app_secret: xxxxxxxxxxxx
 
 # 3. 配置权限（重要！）
-- 添加"多维表格"权限
+- 添加"多维表格"权限（bitable:app）
+- 添加"云文档"权限（docx:document）⭐️ 新增
 - 创建版本并发布
 - 等待审核通过
 ```
